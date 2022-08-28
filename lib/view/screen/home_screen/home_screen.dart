@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:products_managament/configs/size.dart';
+import 'package:products_managament/configs/theme.dart';
+import 'package:products_managament/view/page/welcome_screen/welcome_screen.dart';
+import 'package:products_managament/view/screen/home_screen/product_item.dart';
 import 'package:products_managament/widget/search_filed.dart';
+import 'package:sizer/sizer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,6 +16,8 @@ class HomeScreen extends StatefulWidget {
 final ValueNotifier<String?> _searchText = ValueNotifier<String?>(null);
 
 class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,25 +28,41 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           const SizedBox(
-            width: deffultpadding * 3,
+            width: deffultpadding,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: deffultpadding, horizontal: deffultpadding),
+            padding: const EdgeInsets.symmetric(horizontal: deffultpadding),
             child: SearchField(
               onSearch: (query) {
                 _searchText.value = query;
               },
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height / 2,
-            width: MediaQuery.of(context).size.width / 2,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Stack(children: [
-              Image.asset('name')
+          const SizedBox(
+            height: deffultpadding,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(children: [
+              Container(
+                height: MediaQuery.of(context).size.height / 5,
+                width: MediaQuery.of(context).size.width / 1.5,
+                decoration: const BoxDecoration(
+                    //color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/coupon.jpg'))),
+              ),
+              const SizedBox(
+                height: deffultpadding,
+              ),
+              GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 2, crossAxisCount: 3),
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return ItemTile(index);
+                  }),
             ]),
           )
         ],
