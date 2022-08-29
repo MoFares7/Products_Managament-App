@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:products_managament/configs/size.dart';
+import 'package:products_managament/view/screen/Rootscreen/root_screen.dart';
 
 import '../../screen/home_screen/home_screen.dart';
 
@@ -34,10 +34,10 @@ class WelcomeScreen extends StatelessWidget {
                     border: Border.all()),
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
+                            builder: (context) => const RootScreen()));
                   },
                   height: 20,
                   minWidth: 20,

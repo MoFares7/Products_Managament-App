@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:products_managament/view/screen/home_screen/home_screen.dart';
 import 'package:products_managament/view/screen/settings_screen/settings_screen.dart';
 import 'package:sizer/sizer.dart';
