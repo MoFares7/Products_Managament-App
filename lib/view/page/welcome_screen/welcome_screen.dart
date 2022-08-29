@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:products_managament/configs/size.dart';
 import 'package:products_managament/view/screen/Rootscreen/root_screen.dart';
@@ -43,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                   minWidth: 20,
                   child: Center(
                     child: Text(
-                      'Get Started',
+                      tr('Get Started'),
                       style: Theme.of(context).textTheme.headline5,
                     ),
                   ),

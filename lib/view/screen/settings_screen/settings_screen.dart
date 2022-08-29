@@ -89,12 +89,12 @@ class _SettingScreenState extends State<SettingScreen> {
                             },
                             items: const [
                               DropdownMenuItem(
-                                child: Text('Arabic'),
                                 value: Locale('ar'),
+                                child: Text('Arabic'),
                               ),
                               DropdownMenuItem(
-                                child: Text('English'),
                                 value: Locale('en'),
+                                child: Text('English'),
                               ),
                             ],
                           ),
